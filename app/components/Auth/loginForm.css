@@ -1,0 +1,36 @@
+body{
+    background-color: #f7f5f9;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.main{
+    width: 30%;
+    height: 50vh;
+    padding: 30px;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 8%;
+}
+.main img{
+    margin-left: 55px;
+    margin-bottom: 30px;
+    width: 70%;
+}
+.header{
+    text-align: center;
+    padding: 20px;
+}
+.main input{
+    border: 1px solid #f8b300;
+}
+.btn{
+   margin-top: 20px;
+   background-color: #f8b300;
+   color: black;
+}
+.btn:hover{
+    background-color:lightblue;
+    color: black;
+}
+

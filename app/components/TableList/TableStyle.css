@@ -1,0 +1,12 @@
+.table_style{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.table th{
+    border-top: 2px solid #f8b300;
+}
+.table td{
+    padding: 0.2rem;
+    border-top: 1px solid #f8b300;
+}
+

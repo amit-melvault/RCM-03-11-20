@@ -1,0 +1,24 @@
+.row {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.fristCard {
+  max-width: 30rem;
+  height: 300px;
+  background: #3023ae;
+}
+.secondCrad{
+    max-width: 30rem;
+    height: 300px;
+    background: #17cec4;
+}
+.thridCard{
+    max-width: 30rem;
+    height: 300px;
+    background: #ed629a;
+}
+.forthCard{
+    max-width: 30rem;
+    height: 300px;
+    background: #ff8308;
+}
