@@ -3,7 +3,7 @@ import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination';
 import DataTable from '../../../../components/TableList';
 import { connect } from 'react-redux'
-import { AddEarnedCommi,deleteEarnedCommi, searchEarnedCommi, updateEarnedCommi } from '../../../../Redux/Actions/action';
+import { AddEarnedCommi,deleteEarnedCommi, searchEarnedCommi, updateEarnedCommi } from '../Action';
 
 interface IState {
     EarnedComHead: any,

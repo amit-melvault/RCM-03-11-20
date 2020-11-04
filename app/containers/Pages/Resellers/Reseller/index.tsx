@@ -3,7 +3,7 @@ import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination';
 import DataTable from '../../../../components/TableList';
 import { connect } from 'react-redux';
-import { AddReseller, deleteReseller, searchReseller, updateReseller } from '../../../../Redux/Actions/action';
+import { AddReseller, deleteReseller, searchReseller, updateReseller } from '../Action';
 
 
 

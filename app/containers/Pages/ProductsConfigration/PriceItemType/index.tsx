@@ -3,7 +3,7 @@ import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination';
 import DataTable from '../../../../components/TableList';
 import { connect } from 'react-redux';
-import { AddPriceItem,deletePriceItem, searchPriceItem, updatePriceItem } from '../../../../Redux/Actions/action';
+import { AddPriceItem,deletePriceItem, searchPriceItem, updatePriceItem } from '../Action';
 
 
 interface IState {

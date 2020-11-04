@@ -35,6 +35,7 @@ interface IState {
 interface IProps {
 
 }
+
 class Navbar extends React.Component<IProps, IState>{
   constructor(props) {
     super(props);
@@ -192,7 +193,6 @@ class Navbar extends React.Component<IProps, IState>{
                 menuAppendTo={() => document.body}
               />
             </NavItem>
-
             <Span>
               <select onChange={this.handleSelect}>
                 {

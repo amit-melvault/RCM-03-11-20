@@ -5,7 +5,7 @@ import {
     DELETE_RESELLER,
     SEARCH_RESELLER,
     UPDATE_RESELLER
-} from '../Actions/actionType';
+} from '../Action/actionType';
 
 const initialState = {
     Item: [

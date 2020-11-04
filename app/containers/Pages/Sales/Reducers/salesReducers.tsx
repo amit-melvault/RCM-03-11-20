@@ -5,7 +5,7 @@ import {
     DELETE_SALES_TRANS,
     SEARCH_SALES_TRANS,
     UPDATE_SALES_TRANS,
-} from '../Actions/actionType';
+} from '../Action/actionType';
 
 const initialState = {
     Item: [

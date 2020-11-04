@@ -3,7 +3,7 @@ import Header from '../../../components/Header';
 import PaginationTop from '../../../components/Pagination';
 import DataTable from '../../../components/TableList';
 import { connect } from 'react-redux';
-import { AddComission,deleteComission, searchComission, updateComission } from '../../../Redux/Actions/action';
+import { AddComission,deleteComission, searchComission, updateComission } from './Action';
 
 
 const comissionHead = [

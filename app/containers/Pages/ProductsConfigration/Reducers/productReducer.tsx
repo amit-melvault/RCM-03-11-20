@@ -5,7 +5,7 @@ import {
     DELETE_PRODUCT,
     SEARCH_PRODUCTS,
     UPDATE_PRODUCT
-} from '../Actions/actionType';
+} from '../Action/actionType';
 
 const initialState = {
     Item: [

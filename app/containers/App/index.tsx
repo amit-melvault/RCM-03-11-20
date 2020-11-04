@@ -13,8 +13,6 @@ import ResellerGroup from '../Pages/Resellers/Resellergroup';
 import Products from '../Pages/ProductsConfigration/Products';
 import Comission from '../Pages/Comission';
 import Athentication from '../Pages/Athentication';
-
-import AddProduct from '../../containers/Pages/ProductsConfigration/AddProduct';
 import PriceItemType from '../../containers/Pages/ProductsConfigration/PriceItemType';
 
 function App() {
@@ -29,7 +27,6 @@ function App() {
           <Route exact path="/reseller-group" component={ResellerGroup} />
           <Route exact path="/product-configration/product" component={Products} />
           <Route exact path="/product-configration/price-item" component={PriceItemType} />
-          <Route exact path="/product-configration/add" component={AddProduct} />
           <Route exact path="/comission" component={Comission} />
           <Route exact path="/athentication" component={Athentication} />
           <Route component={NotFoundPage} />

@@ -3,7 +3,7 @@ import PaginationTop from '../../../../components/Pagination';
 import DataTable from '../../../../components/TableList';
 import Header from '../../../../components/Header';
 import { connect } from 'react-redux';
-import { AddResellerGroup,deleteResellerGroup,searchResellerGroup,updateResellergroup } from '../../../../Redux/Actions/action';
+import { AddResellerGroup,deleteResellerGroup,searchResellerGroup,updateResellergroup } from '../Action';
 
 interface IState {
     TableHead: any,

@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import { History } from 'history';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import createReducer from './Redux/Reducers/reducer';
+import createReducer from './rootReducers/rootReducers';
 import { InjectedStore, ApplicationRootState } from './types';
 
 //import rootreducer
@@ -53,7 +53,7 @@ export default function configureStore(
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */
   if (module.hot) {
-    module.hot.accept('./Redux/Reducers/reducer', () => {
+    module.hot.accept('../app/rootReducers/rootReducers', () => {
       forceReducerReload(store);
     });
   }

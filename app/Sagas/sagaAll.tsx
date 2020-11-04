@@ -2,12 +2,12 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import {
 
 } from './api'
-import {
-    GET_PRODUCT,
-    SET_PRODUCT,
-    getProduct,
-    setProduct
-} from '../Actions/actionType';
+// import {
+//     GET_PRODUCT,
+//     SET_PRODUCT,
+//     getProduct,
+//     setProduct
+// } from '../';
 
 
 
@@ -23,7 +23,7 @@ function* workerGetproduct(action) {
     }
 }
 
-export function* watchGetProduct() {
-    yield takeEvery(GET_PRODUCT, workerGetproduct);
-}
+// export function* watchGetProduct() {
+//     yield takeEvery(GET_PRODUCT, workerGetproduct);
+// }
 

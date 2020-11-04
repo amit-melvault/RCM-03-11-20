@@ -9,7 +9,7 @@ import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination'
 import DataTable from '../../../../components/TableList'
 import { connect } from 'react-redux'
-import { AddProductItem,deleteProduct, searchProducts, updateProduct } from '../../../../Redux/Actions/action'
+import { AddProductItem,deleteProduct, searchProducts, updateProduct } from '../Action'
 
 
 const productHead = [

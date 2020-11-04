@@ -3,7 +3,7 @@ import PaginationTop from '../../../../components/Pagination'
 import DataTable from '../../../../components/TableList'
 import Header from '../../../../components/Header'
 import { connect } from 'react-redux'
-import { AddSalesTrans,deleteSalesTrans, searchSalesTrans, updateSalesTrans } from '../../../../Redux/Actions/action';
+import { AddSalesTrans,deleteSalesTrans, searchSalesTrans, updateSalesTrans } from '../Action';
 
 
 interface IState {

@@ -5,7 +5,7 @@ import {
     DELETE_PRICEITEM_TYPE,
     SEARCH_PRICEITEM_TYPE,
     UPDATE_PRICEITEM_TYPE,
-} from '../Actions/actionType';
+} from '../Action/actionType';
 
 const initialState = {
     Item: [

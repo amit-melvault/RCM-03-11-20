@@ -5,7 +5,7 @@ import {
     DELETE_COMISSION,
     SEARCH_COMISSION,
     UPDATE_COMISSION
-} from '../Actions/actionType';
+} from '../Action/actionType';
 
 const initialState = {
     Item: [

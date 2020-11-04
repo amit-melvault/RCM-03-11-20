@@ -5,7 +5,7 @@ import {
     DELETE_EARNED_COMMISION,
     SEARCH_EARNED_COMMISION,
     UPDATE_EARNED_COMMISION,
-} from '../Actions/actionType';
+} from '../Action/actionType';
 
 const initialState = {
     Item: [
