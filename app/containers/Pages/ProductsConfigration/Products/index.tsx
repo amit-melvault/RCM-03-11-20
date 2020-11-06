@@ -1,19 +1,18 @@
 import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
-
 import NotFoundPage from '../../../NotFoundPage/Loadable';
-
 import GlobalStyle from '../../../../global-styles';
 import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination'
 import DataTable from '../../../../components/TableList'
 import { connect } from 'react-redux'
-import { AddProductItem,deleteProduct, searchProducts, updateProduct } from '../Action'
+import { AddProductItem, deleteProduct, searchProducts, updateProduct } from '../Action'
+import ProductTable from '../../../Tables/ProductConfigration/ProductTable';
 
 
 const productHead = [
-  { id: 1, name: 'Product', action:"Action"  },
+  { id: 1, name: 'Product', action: "Action" },
 ]
 
 interface IState {
@@ -21,7 +20,7 @@ interface IState {
   currentPage: number,
   productPerPage: number
   searchInputValue: any
-  isOpenAddModal:boolean
+  isOpenAddModal: boolean
 }
 interface IProps {
   productdata: any,
@@ -42,7 +41,7 @@ class Products extends React.Component<IProps, IState> {
       currentPage: 1,
       productPerPage: 5,
       searchInputValue: '',
-      isOpenAddModal:false,
+      isOpenAddModal: false,
     }
   }
 
@@ -78,7 +77,7 @@ class Products extends React.Component<IProps, IState> {
   }
   handleModalClose = () => {
     this.setState({
-        isOpenAddModal: false,
+      isOpenAddModal: false,
     });
   };
 
@@ -95,10 +94,9 @@ class Products extends React.Component<IProps, IState> {
           data={this.props.product}
           searchInputValue={this.state.searchInputValue}
           handleSearchChange={this.handleSearchChange}
-          isOpenAddModal ={this.state.isOpenAddModal}
+          isOpenAddModal={this.state.isOpenAddModal}
           handleAddItemModal={this.handleAddItemModal}
           handleModalClose={this.handleModalClose}
-          addItems = {this.props.AddProductItem}
         />
         <PaginationTop
           itemCount={this.props.product.length}
@@ -107,11 +105,22 @@ class Products extends React.Component<IProps, IState> {
           page={this.state.currentPage}
           perPage={this.state.productPerPage}
         />
-        <DataTable
+        {/* <DataTable
           data={currentPages}
           head={this.state.tableHead}
           handleDelete={this.deleteProduct}
           updateItem={this.props.updateProduct}
+        /> */}
+        <ProductTable
+          data={currentPages}
+          head={this.state.tableHead}
+          handleDelete={this.deleteProduct}
+          updateItem={this.props.updateProduct}
+          handleAddItemModal={this.handleAddItemModal}
+          isOpenAddModal={this.state.isOpenAddModal}
+          handleModalClose={this.handleModalClose}
+          addItems={this.props.AddProductItem}
+          btnName="Add Product"
         />
         <GlobalStyle />
       </div>

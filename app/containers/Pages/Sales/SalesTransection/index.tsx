@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PaginationTop from '../../../../components/Pagination'
-import DataTable from '../../../../components/TableList'
+// import DataTable from '../../../../components/TableList'
+import SalesTransTable from '../../../Tables/Sales/SalesTransTable';
 import Header from '../../../../components/Header'
 import { connect } from 'react-redux'
-import { AddSalesTrans,deleteSalesTrans, searchSalesTrans, updateSalesTrans } from '../Action';
+import { AddSalesTrans, deleteSalesTrans, searchSalesTrans, updateSalesTrans } from '../Action';
 
 
 interface IState {
@@ -11,7 +12,7 @@ interface IState {
     currentPage: number,
     salesTranPerPage: number,
     searchInputValue: any,
-    isOpenAddModal:boolean,
+    isOpenAddModal: boolean,
 }
 interface IProps {
     heading: any,
@@ -24,7 +25,7 @@ interface IProps {
     updateSalesTrans: any,
 }
 const salesHead = [
-    { id: 1, name: "Product", refNo: "Reference Number", Reseller: "Reseller", action:"Action"  },
+    { id: 1, productName: "Name", refNo: "Refrence Number", reseller: "Reseller",salesAmount:"Amount" },
 ]
 
 class Sales extends Component<IProps, IState> {
@@ -35,7 +36,7 @@ class Sales extends Component<IProps, IState> {
             currentPage: 1,
             salesTranPerPage: 5,
             searchInputValue: '',
-            isOpenAddModal:false,
+            isOpenAddModal: false,
         }
     }
 
@@ -65,14 +66,14 @@ class Sales extends Component<IProps, IState> {
     handleAddItemModal = (e) => {
         e.preventDefault()
         this.setState({
-          isOpenAddModal: true,
+            isOpenAddModal: true,
         })
-      }
-      handleModalClose = () => {
+    }
+    handleModalClose = () => {
         this.setState({
             isOpenAddModal: false,
         });
-      };
+    };
 
     render() {
         const indexOfLastPage = this.state.currentPage * this.state.salesTranPerPage;
@@ -90,7 +91,6 @@ class Sales extends Component<IProps, IState> {
                     isOpenAddModal={this.state.isOpenAddModal}
                     handleAddItemModal={this.handleAddItemModal}
                     handleModalClose={this.handleModalClose}
-                    addItems={this.props.AddSalesTrans}
                 />
                 <PaginationTop
                     itemCount={this.props.SalesTrans.length}
@@ -99,11 +99,24 @@ class Sales extends Component<IProps, IState> {
                     page={this.state.currentPage}
                     perPage={this.state.salesTranPerPage}
                 />
-                <DataTable
+                {/* <DataTable
                     data={currentPages}
                     head={this.state.tableHead}
                     handleDelete={this.deleteSalesTrans}
                     updateItem={this.props.updateSalesTrans}
+                /> */}
+
+                <SalesTransTable
+                    data={currentPages}
+                    head={this.state.tableHead}
+                    handleDelete={this.deleteSalesTrans}
+                    isOpenAddModal={this.state.isOpenAddModal}
+                    handleAddItemModal={this.handleAddItemModal}
+                    handleModalClose={this.handleModalClose}
+                    addSalesTransItem={this.props.AddSalesTrans}
+                    updateSalesTransItem={this.props.updateSalesTrans}
+                    titleName="Add Sales Transection"
+                    btnName=" Add sales"
                 />
             </React.Fragment>
         )

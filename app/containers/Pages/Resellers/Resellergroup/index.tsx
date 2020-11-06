@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import PaginationTop from '../../../../components/Pagination';
-import DataTable from '../../../../components/TableList';
+// import DataTable from '../../../../components/TableList';
+import ResellerGroupTable from '../../../Tables/Resellers/ResellerGroupTable'
 import Header from '../../../../components/Header';
 import { connect } from 'react-redux';
-import { AddResellerGroup,deleteResellerGroup,searchResellerGroup,updateResellergroup } from '../Action';
+import { AddResellerGroup, deleteResellerGroup, searchResellerGroup, updateResellergroup } from '../Action';
 
 interface IState {
     TableHead: any,
     currentPage: number,
     productPerPage: number,
     searchInputValue: any,
-    isOpenAddModal:boolean,
+    isOpenAddModal: boolean,
 }
 
 interface IProps {
@@ -24,7 +25,7 @@ interface IProps {
     updateResellergroup: any,
 }
 const resellerGroupHead = [
-    { id: 1, name: "Product" , action:"Action" },
+    { id: 1, groupName: "Product", action: "Action", name: 'Name', phone: 'Contact Phone', email: 'Email' },
 ]
 
 class ResellerGroup extends Component<IProps, IState> {
@@ -35,7 +36,7 @@ class ResellerGroup extends Component<IProps, IState> {
             currentPage: 1,
             productPerPage: 5,
             searchInputValue: '',
-            isOpenAddModal:false,
+            isOpenAddModal: false,
         }
     }
 
@@ -65,14 +66,14 @@ class ResellerGroup extends Component<IProps, IState> {
     handleAddItemModal = (e) => {
         e.preventDefault()
         this.setState({
-          isOpenAddModal: true,
+            isOpenAddModal: true,
         })
-      }
-      handleModalClose = () => {
+    }
+    handleModalClose = () => {
         this.setState({
             isOpenAddModal: false,
         });
-      };
+    };
 
 
     render() {
@@ -92,7 +93,6 @@ class ResellerGroup extends Component<IProps, IState> {
                     isOpenAddModal={this.state.isOpenAddModal}
                     handleAddItemModal={this.handleAddItemModal}
                     handleModalClose={this.handleModalClose}
-                    addItems={this.props.AddResellerGroup}
                 />
                 <PaginationTop
                     itemCount={this.props.resellerGroupData.length}
@@ -101,11 +101,22 @@ class ResellerGroup extends Component<IProps, IState> {
                     page={this.state.currentPage}
                     perPage={this.state.productPerPage}
                 />
-                <DataTable
+                {/* <DataTable
                     data={currentPages}
                     head={this.state.TableHead}
                     handleDelete={this.deleteResellerGroup}
                     updateItem={this.props.updateResellergroup}
+                /> */}
+                <ResellerGroupTable
+                    data={currentPages}
+                    head={this.state.TableHead}
+                    handleDelete={this.deleteResellerGroup}
+                    updateResellerGroup={this.props.updateResellergroup}
+                    AddResellerGroup={this.props.AddResellerGroup}
+                    isOpenAddModal={this.state.isOpenAddModal}
+                    handleModalClose={this.handleModalClose}
+                    titleName="Add reseller Group"
+                    btnName="Add reseelr Group"
                 />
             </React.Fragment>
         )

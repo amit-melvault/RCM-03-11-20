@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination';
-import DataTable from '../../../../components/TableList';
+// import DataTable from '../../../../components/TableList';
 import { connect } from 'react-redux'
-import { AddEarnedCommi,deleteEarnedCommi, searchEarnedCommi, updateEarnedCommi } from '../Action';
+import { AddEarnedCommi, deleteEarnedCommi, searchEarnedCommi, updateEarnedCommi } from '../Action';
+import EarnedCommissionTable from '../../../Tables/Sales/EarnedCommissionTable';
 
 interface IState {
     EarnedComHead: any,
     currentPage: number,
     productPerPage: number,
     searchInputValue: any,
-    isOpenAddModal:boolean,
+    isOpenAddModal: boolean,
 }
 interface IProps {
     heading: any,
@@ -23,7 +24,7 @@ interface IProps {
     updateEarnedCommi: any
 }
 const earnedComissionHead = [
-    { id: 1, name: "Reseller Name", refNo: "Transection ", Reseller: "Comission Amount", action:"Action" },
+    { id: 1, commission: "Commission", transectionItem: "Transection Item", commissionAmount: "Commission Amount", currency:"Currency"},
 ]
 
 class EarnedComission extends Component<IProps, IState> {
@@ -34,7 +35,7 @@ class EarnedComission extends Component<IProps, IState> {
             currentPage: 1,
             productPerPage: 5,
             searchInputValue: '',
-            isOpenAddModal:false,
+            isOpenAddModal: false,
         }
     }
 
@@ -64,14 +65,14 @@ class EarnedComission extends Component<IProps, IState> {
     handleAddItemModal = (e) => {
         e.preventDefault()
         this.setState({
-          isOpenAddModal: true,
+            isOpenAddModal: true,
         })
-      }
-      handleModalClose = () => {
+    }
+    handleModalClose = () => {
         this.setState({
             isOpenAddModal: false,
         });
-      };
+    };
 
 
     render() {
@@ -90,7 +91,6 @@ class EarnedComission extends Component<IProps, IState> {
                     isOpenAddModal={this.state.isOpenAddModal}
                     handleAddItemModal={this.handleAddItemModal}
                     handleModalClose={this.handleModalClose}
-                    addItems={this.props.AddEarnedCommi}
                 />
                 <PaginationTop
                     itemCount={this.props.earnComi.length}
@@ -99,11 +99,22 @@ class EarnedComission extends Component<IProps, IState> {
                     page={this.state.currentPage}
                     perPage={this.state.productPerPage}
                 />
-                <DataTable
+                {/* <DataTable
                     data={currentPages}
                     head={this.state.EarnedComHead}
                     handleDelete={this.deleteComission}
                     updateItem={this.props.updateEarnedCommi}
+                /> */}
+                <EarnedCommissionTable
+                    data={currentPages}
+                    head={this.state.EarnedComHead}
+                    handleDelete={this.deleteComission}
+                    updateEarnedCommision={this.props.updateEarnedCommi}
+                    isOpenAddModal={this.state.isOpenAddModal}
+                    handleAddItemModal={this.handleAddItemModal}
+                    handleModalClose={this.handleModalClose}
+                    btnName="Add Earned Comission"
+                    addIEarnedCommision={this.props.AddEarnedCommi}
                 />
             </React.Fragment>
         );

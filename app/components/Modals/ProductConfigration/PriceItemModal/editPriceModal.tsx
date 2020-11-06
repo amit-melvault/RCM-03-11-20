@@ -14,7 +14,8 @@ interface IProps {
     editData: any,
     updateItem: any,
 }
-class EditModal extends Component<IProps, IState> {
+
+class EditPriceModal extends Component<IProps, IState> {
     constructor(props) {
         super(props);
         this.state = {
@@ -71,64 +72,50 @@ class EditModal extends Component<IProps, IState> {
                     <Form onSubmit={this.onSubmitUpdate}>
                         <Grid>
                             <GridItem span={5}>
-                                <FormGroup label="Code :" isRequired fieldId="simple-form-Code" >
+                                <div className="form-group">
+                                    <label>Code :</label>
                                     <input
-                                        style={{ width: "100%" }}
+                                        className="form-control"
                                         type="text"
                                         placeholder="code"
                                         onChange={this.handleEditInput}
                                         name="refNo"
                                         defaultValue={this.props.editData.refNo}
                                     />
-                                </FormGroup>
+                                </div>
                             </GridItem>
                             <GridItem span={1}></GridItem>
                             <GridItem span={6}>
-                                <FormGroup label="Display Name :" isRequired fieldId="simple-Display-Name" >
+                                <div className="form-group" >
+                                    <label>Display Name : </label>
                                     <input
-                                        style={{ width: "100%" }}
+                                        className="form-control"
                                         type="text"
                                         placeholder="Display Name"
                                         onChange={this.handleEditInput}
                                         name="name"
                                         defaultValue={this.props.editData.name}
                                     />
-                                </FormGroup>
+                                </div>
                             </GridItem>
                         </Grid>
                         <Grid>
                             <GridItem span={5}>
-                                <FormGroup label="Price Item" isRequired fieldId="simple-form-Code" >
+                                <div className="form-group" >
+                                    <label>Price Item :</label>
                                     <input
-                                        style={{ width: "100%" }}
+                                        className="form-control"
                                         type="text"
                                         placeholder="Price Item"
                                         onChange={this.handleEditInput}
                                         name="Reseller"
                                         defaultValue={this.props.editData.Reseller}
                                     />
-                                </FormGroup>
+                                </div>
                             </GridItem>
                             <GridItem span={1}></GridItem>
                         </Grid>
-                        {/* <Grid style={{ marginTop: "40px" }}>
-                            <GridItem span={6}>
-                                <Button style={{ background: "#ffae42" }}>Add Price Item</Button>
-                            </GridItem>
-                            <GridItem span={6}>
-                                <SearchInput
-                                    placeholder='Search Reseller'
-                                    onChange={this.handleSearch}
-                                    onClear={() => this.handleSearch()}
-                                />
-                            </GridItem>
-                            <GridItem span={12} style={{ marginTop: "20px" }}>
-                                Reseller1,
-                                Reseller2,
-                                Reseller3,
-                                Reseller4,
-                            </GridItem>
-                        </Grid> */}
+                        
                     </Form>
                 </Modal>
             </React.Fragment>
@@ -136,5 +123,5 @@ class EditModal extends Component<IProps, IState> {
     }
 }
 
-export default EditModal;
+export default EditPriceModal;
 

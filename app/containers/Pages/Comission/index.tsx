@@ -89,7 +89,6 @@ class Comission extends Component<IProps, IState> {
           isOpenAddModal={this.state.isOpenAddModal}
           handleAddItemModal={this.handleAddItemModal}
           handleModalClose={this.handleModalClose}
-          addItems={this.props.AddComission}
         />
         <PaginationTop
           itemCount={this.props.ComisionData.length}

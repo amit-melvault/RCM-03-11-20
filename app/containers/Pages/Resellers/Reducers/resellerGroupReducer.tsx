@@ -9,10 +9,10 @@ import {
 
 const initialState = {
     Item: [
-        { id: 1, name: "Reseller zone 1", refNo: "RS001", Reseller: 'item type' },
-        { id: 2, name: "Reseller zone 2", refNo: "RS001", Reseller: 'item type' },
-        { id: 3, name: "Reseller zone 3", refNo: "RS001", Reseller: 'item type' },
-        { id: 4, name: "Reseller zone 4", refNo: "RS001", Reseller: 'item type' },
+        { id: 1, groupName: "Reseller zone 1", name: "RS001", phone: '12345678',email:'text@gmail.com' },
+        { id: 2, groupName: "Reseller zone 2", name: "RS001", phone: '12345678',email:'text@gmail.com' },
+        { id: 3, groupName: "Reseller zone 3", name: "RS001", phone: '12345678',email:'text@gmail.com' },
+        { id: 4, groupName: "Reseller zone 4", name: "RS001", phone: '12345678',email:'text@gmail.com' },
     ]
 }
 
@@ -79,7 +79,7 @@ const _handleDeletedResellerGroup = (state, id) => {
 const _handleFilterResellerGroup = (state, value) => {
     let resellergroupItemData = originalData;
     let filterResellerGroupData = resellergroupItemData.filter(item => {
-        return item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+        return item.groupName.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     });
     return filterResellerGroupData;
 }
@@ -87,6 +87,7 @@ const _handleUpdateResellerGroup = (state, data) => {
     let resellerGroupItems = [...state.Item];
     resellerGroupItems.forEach((reselGroup) => {
         if (reselGroup.id === data.id) {
+            reselGroup.groupName = data.groupName;
             reselGroup.name = data.name;
             reselGroup.refNo = data.refNo;
             reselGroup.Reseller = data.reseller;

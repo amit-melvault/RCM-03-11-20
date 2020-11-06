@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination';
-import DataTable from '../../../../components/TableList';
+// import DataTable from '../../../../components/TableList';
+import ResellerTable from '../../../Tables/Resellers/ResellerTable';
 import { connect } from 'react-redux';
 import { AddReseller, deleteReseller, searchReseller, updateReseller } from '../Action';
 
@@ -25,8 +26,9 @@ interface IProps {
   updateReseller: any
 
 }
+
 const resellersHead = [
-  { id: 1, name: "Reseller Name", refNo: "Reseller Code", action:"Action"  },
+  { id: 1, name: "Reseller Name", phone: "Contact Phone", email: "Email" },
 ]
 
 
@@ -93,7 +95,6 @@ class Reseller extends Component<IProps, IState> {
           isOpenAddModal={this.state.isOpenAddModal}
           handleAddItemModal={this.handleAddItemModal}
           handleModalClose={this.handleModalClose}
-          addItems={this.props.AddReseller}
         />
         <PaginationTop
           itemCount={this.props.resellerData.length}
@@ -102,11 +103,23 @@ class Reseller extends Component<IProps, IState> {
           page={this.state.currentPage}
           perPage={this.state.productPerPage}
         />
-        <DataTable
+        {/* <DataTable
           data={currentPages}
           head={this.state.tabHeader}
           handleDelete={this.deleteResellerData}
           updateItem={this.props.updateReseller}
+        /> */}
+        <ResellerTable
+          data={currentPages}
+          head={this.state.tabHeader}
+          isOpenAddModal={this.state.isOpenAddModal}
+          handleAddItemModal={this.handleAddItemModal}
+          handleModalClose={this.handleModalClose}
+          handleDelete={this.deleteResellerData}
+          addReseller = {this.props.AddReseller}
+          updateResellerData={this.props.updateReseller}
+          titleName="Add Resellers"
+          btnName="Add Resellers"
         />
       </React.Fragment>
     );

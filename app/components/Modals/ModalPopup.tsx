@@ -8,6 +8,7 @@ interface IState {}
 interface IProps {
     showModal: boolean,
     handleModalClose: any
+    buttonName: any
 }
 
 class ModalPopup extends Component<IProps, IState>{

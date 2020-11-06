@@ -9,9 +9,9 @@ import {
 
 const initialState = {
     Item: [
-        { id: 1, name: "some Reseller name", refNo: "RS0001", Reseller: "10.0000 USD" },
-        { id: 2, name: "some name of a Reseller ", refNo: "RS0002", Reseller: "20.0000 USD" },
-        { id: 3, name: "some Reseller name goes here", refNo: "RS0003", Reseller: "30.0000 USD" },
+        { id: 1, commission: "commison", transectionItem: "RS0001", commissionAmount: "10.0000 USD", currency:"USD" },
+        { id: 2, commission: "some ", transectionItem: "RS0001", commissionAmount: "10.0000 USD", currency:"ISD" },
+        { id: 3, commission: "Reseller name", transectionItem: "RS0001", commissionAmount: "10.0000 USD", currency:"EURO" },
     ]
 }
 
@@ -79,18 +79,20 @@ const _handleDeletedComission = (state, id) => {
 const _handleFilterComission = (state, value) => {
     let CommisionData = originalData;
     let filterComisionData = CommisionData.filter(item => {
-        return item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+        return item.commission.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     });
     return filterComisionData;
 }
 
 const _handleUpdateComission = (state, data) => {
+    console.log(data)
     let CommiItems = [...state.Item];
     CommiItems.forEach((commision) => {
         if (commision.id === data.id) {
-            commision.name = data.name;
-            commision.refNo = data.refNo;
-            commision.Reseller = data.reseller;
+            commision.commission = data.commission;
+            commision.transectionItem = data.transectionItem;
+            commision.commissionAmount = data.commissionAmount;
+            commision.currency = data.currency;
         }
     });
     return CommiItems;

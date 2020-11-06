@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../../../../components/Header';
 import PaginationTop from '../../../../components/Pagination';
-import DataTable from '../../../../components/TableList';
+// import DataTable from '../../../../components/TableList';
 import { connect } from 'react-redux';
-import { AddPriceItem,deletePriceItem, searchPriceItem, updatePriceItem } from '../Action';
+import { AddPriceItem, deletePriceItem, searchPriceItem, updatePriceItem } from '../Action';
+import PriceItemTable from '../../../Tables/ProductConfigration/PriceItemTable'
 
 
 interface IState {
@@ -22,7 +23,7 @@ interface IProps {
     searchPriceItem: any
 }
 const priceItemHeader = [
-    { id: 1, name: "Price Item Type", action:"Action"  },
+    { id: 1, name: "Price Item Type", action: "Action" },
 ]
 
 class PriceItemType extends Component<IProps, IState>{
@@ -33,7 +34,7 @@ class PriceItemType extends Component<IProps, IState>{
             currentPage: 1,
             productPerPage: 5,
             searchInputValue: '',
-            isOpenAddModal:false,
+            isOpenAddModal: false,
         }
     }
 
@@ -63,14 +64,14 @@ class PriceItemType extends Component<IProps, IState>{
     handleAddItemModal = (e) => {
         e.preventDefault()
         this.setState({
-          isOpenAddModal: true,
+            isOpenAddModal: true,
         })
-      }
-      handleModalClose = () => {
+    }
+    handleModalClose = () => {
         this.setState({
             isOpenAddModal: false,
         });
-      };
+    };
 
     render() {
         const indexOfLastPage = this.state.currentPage * this.state.productPerPage;
@@ -86,10 +87,9 @@ class PriceItemType extends Component<IProps, IState>{
                     data={this.props.price}
                     searchInputValue={this.state.searchInputValue}
                     handleSearchChange={this.handleSearchChange}
-                    isOpenAddModal ={this.state.isOpenAddModal}
+                    isOpenAddModal={this.state.isOpenAddModal}
                     handleAddItemModal={this.handleAddItemModal}
                     handleModalClose={this.handleModalClose}
-                    addItems = {this.props.AddPriceItem}
                 />
                 <PaginationTop
                     itemCount={this.props.price.length}
@@ -97,11 +97,24 @@ class PriceItemType extends Component<IProps, IState>{
                     onPerPageSelect={this.onPerPageSelect}
                     page={this.state.currentPage}
                     perPage={this.state.productPerPage} />
-                <DataTable
+
+                {/* <DataTable
                     data={currentPages}
                     head={priceItemHeader}
                     handleDelete={this.deletePriceItem}
                     updateItem={this.props.updatePriceItem}
+                /> */}
+                
+                <PriceItemTable
+                    data={currentPages}
+                    head={priceItemHeader}
+                    handleDelete={this.deletePriceItem}
+                    updateItem={this.props.updatePriceItem}
+                    handleAddItemModal={this.handleAddItemModal}
+                    isOpenAddModal={this.state.isOpenAddModal}
+                    handleModalClose={this.handleModalClose}
+                    addPriceItems={this.props.AddPriceItem}
+                    btnName="Add Price"
                 />
             </React.Fragment>
         );

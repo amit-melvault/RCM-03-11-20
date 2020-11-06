@@ -9,9 +9,9 @@ import {
 
 const initialState = {
     Item: [
-        { id: 1, name: "Some Reseller Name", refNo: "RS001", Reseller: 'item type' },
-        { id: 2, name: "Some Name of a Reseller", refNo: "RS002", Reseller: 'item type' },
-        { id: 3, name: "Some Reseller Name goes here", refNo: "RS003", Reseller: 'item type' },
+        { id: 1, name: "Sham", phone: "123456789", email: 'ram@text.com' },
+        { id: 2, name: "ram", phone: "987654321", email: 'sham@gmail.com' },
+        { id: 3, name: "Mohan", phone: "234176893", email: 'text@text.com' },
     ]
 }
 const originalData = initialState.Item;
@@ -86,8 +86,8 @@ const _handleUpdateReseller = (state, data) => {
     resellerItems.forEach((resel) => {
         if (resel.id === data.id) {
             resel.name = data.name;
-            resel.refNo = data.refNo;
-            resel.Reseller = data.reseller;
+            resel.phone = data.phone;
+            resel.email = data.email;
         }
     });
     return resellerItems;

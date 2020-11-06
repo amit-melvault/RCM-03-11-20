@@ -1,5 +1,5 @@
 import React from 'react';
-import EditModal from '../Modals/EditModal';
+// import EditModal from '../Modals/EditModal';
 import './TableStyle.css';
 
 interface IState {
@@ -13,6 +13,7 @@ interface IProps {
   handleDelete: any
   updateItem: any
 }
+
 class DataTable extends React.Component<IProps, IState> {
   constructor(props) {
     super(props);
@@ -44,15 +45,14 @@ class DataTable extends React.Component<IProps, IState> {
     this.setState({ isMouseInside: false });
   }
   render() {
-    console.log(this.props.head)
     return (
       <React.Fragment>
-        <EditModal
+        {/* <EditModal
           showModal={this.state.isModalOpen}
           handleModalClose={this.handleModalClose}
           editData={this.state.editData}
           updateItem={this.props.updateItem}
-        />
+        /> */}
 
         <div className="table_style">
           <table className="table table-striped">
@@ -132,6 +132,4 @@ const ButtonStyel = {
   marginTop: "auto"
 }
 
-// const mapStateToProps = (state) =>{}
-// const mapDispatchToProps = (dispatch) =>{}
 export default DataTable;

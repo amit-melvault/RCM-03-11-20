@@ -9,16 +9,16 @@ import {
 
 const initialState = {
     Item: [
-        { id: 1, name: "sales product trans", refNo: "RS0001", Reseller: "Reseller1(RS0001)" },
-        { id: 2, name: "some name ", refNo: "RS0002", Reseller: "Reseller2(RS0002)" },
-        { id: 3, name: "some product name goes here", refNo: "RS0003", Reseller: "Reseller3(RS0003)" },
-        { id: 4, name: "product name", refNo: "RS0001", Reseller: "Reseller1(RS0001)" },
-        { id: 5, name: "some name of sales ", refNo: "RS0002", Reseller: "Reseller2(RS0002)" },
-        { id: 6, name: "some sales transection", refNo: "RS0003", Reseller: "Reseller3(RS0003)" },
-        { id: 7, name: "some product name", refNo: "RS0001", Reseller: "Reseller1(RS0001)" },
-        { id: 8, name: "some sale of a product ", refNo: "RS0002", Reseller: "Reseller2(RS0002)" },
-        { id: 9, name: "some product salse", refNo: "RS0003", Reseller: "Reseller3(RS0003)" },
-        { id: 10, name: "some tansection name", refNo: "RS0001", Reseller: "Reseller1(RS0001)" },
+        { id: 1, productName: "sales product trans", refNo: "RS0001", reseller: "reseller1(RS0001)",salesAmount:"5000USD" },
+        { id: 2, productName: "some productName ", refNo: "RS0002", reseller: "reseller2(RS0002)",salesAmount:"5000USD" },
+        { id: 3, productName: "some product productName goes here", refNo: "RS0003", reseller: "reseller3(RS0003)",salesAmount:"5000USD" },
+        { id: 4, productName: "product productName", refNo: "RS0001", reseller: "reseller1(RS0001)",salesAmount:"5000USD" },
+        { id: 5, productName: "some productName of sales ", refNo: "RS0002", reseller: "reseller2(RS0002)",salesAmount:"5000USD" },
+        { id: 6, productName: "some sales transection", refNo: "RS0003", reseller: "reseller3(RS0003)",salesAmount:"5000USD" },
+        { id: 7, productName: "some product productName", refNo: "RS0001", reseller: "reseller1(RS0001)",salesAmount:"5000USD" },
+        { id: 8, productName: "some sale of a product ", refNo: "RS0002", reseller: "reseller2(RS0002)",salesAmount:"5000USD" },
+        { id: 9, productName: "some product salse", refNo: "RS0003", reseller: "reseller3(RS0003)",salesAmount:"5000USD" },
+        { id: 10, productName: "some tansection name", refNo: "RS0001", reseller: "reseller1(RS0001)",salesAmount:"5000USD" },
 
     ]
 }
@@ -89,7 +89,7 @@ const _handleDeletedSalesTrans = (state, id) => {
 const _handleFilterSalesTrans = (state, value) => {
     let SalesTransData = originalData;
     let filterSalesTransData = SalesTransData.filter(item => {
-        return item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+        return item.productName.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     });
     return filterSalesTransData;
 }
@@ -97,9 +97,10 @@ const _handleUpdateSalesTrans = (state, data) => {
     let SalesTransItems = [...state.Item];
     SalesTransItems.forEach((salesTrn) => {
         if (salesTrn.id === data.id) {
-            salesTrn.name = data.name;
+            salesTrn.productName = data.productName;
             salesTrn.refNo = data.refNo;
-            salesTrn.Reseller = data.reseller;
+            salesTrn.reseller = data.reseller;
+            salesTrn.salesAmount = data.salesAmount
         }
     });
     return SalesTransItems;

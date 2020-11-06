@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
-import { Modal, Button, ModalVariant, Form, FormGroup, Grid, GridItem, Alert, AlertActionCloseButton } from '@patternfly/react-core';
+import {
+    Modal,
+    Button,
+    ModalVariant,
+    Form,
+    FormGroup,
+    Grid,
+    GridItem,
+    Alert,
+    AlertActionCloseButton
+} from '@patternfly/react-core';
 
 
 
@@ -15,10 +25,10 @@ interface IProps {
     showAddModal: boolean,
     handleModalClose: any
     buttonName: any
-    addItems: any
+    addPriceTypeItems: any
 }
 
-class AddModal extends Component<IProps, IState>{
+class AddPriceModal extends Component<IProps, IState>{
     constructor(props) {
         super(props)
         this.state = {
@@ -35,14 +45,13 @@ class AddModal extends Component<IProps, IState>{
 
     onSubmitUpdate = (e) => {
         e.preventDefault()
-        this.setState({
-            isOpenAlert: true,
-            id: this.state.id + 1,
+        let data = {
+            id: this.state.id,
             name: this.state.name,
             refNo: this.state.refNo,
             Reseller: this.state.Reseller,
-        })
-        this.props.addItems(this.state)
+        }
+        this.props.addPriceTypeItems(data)
         this.handleModalToggle();
         this.setState({
             id: 1,
@@ -91,43 +100,46 @@ class AddModal extends Component<IProps, IState>{
                     <Form onSubmit={this.onSubmitUpdate}>
                         <Grid>
                             <GridItem span={5}>
-                                <FormGroup label="Code :" isRequired fieldId="simple-form-Code" >
+                                <div className="form-group" >
+                                    <label>Code :</label>
                                     <input
-                                        style={{ width: "100%" }}
+                                        className="form-control"
                                         type="text"
                                         placeholder="code"
                                         onChange={this.handleEditInput}
                                         name="refNo"
                                         value={this.state.refNo}
                                     />
-                                </FormGroup>
+                                </div>
                             </GridItem>
                             <GridItem span={1}></GridItem>
                             <GridItem span={6}>
-                                <FormGroup label="Display Name :" isRequired fieldId="simple-Display-Name" >
+                                <div className="form-group" >
+                                <label>Display Name :</label>
                                     <input
-                                        style={{ width: "100%" }}
+                                        className="form-control"
                                         type="text"
                                         placeholder="Display Name"
                                         onChange={this.handleEditInput}
                                         name="name"
                                         value={this.state.name}
                                     />
-                                </FormGroup>
+                                </div>
                             </GridItem>
                         </Grid>
                         <Grid>
                             <GridItem span={5}>
-                                <FormGroup label="Price Item" isRequired fieldId="simple-form-Code" >
+                                <div className="form-group" >
+                                <label>Price Item :</label>
                                     <input
-                                        style={{ width: "100%" }}
+                                        className="form-control"
                                         type="text"
                                         placeholder="Price Item"
                                         onChange={this.handleEditInput}
                                         name="Reseller"
                                         value={this.state.Reseller}
                                     />
-                                </FormGroup>
+                                </div>
                             </GridItem>
                             <GridItem span={1}></GridItem>
                         </Grid>
@@ -138,4 +150,4 @@ class AddModal extends Component<IProps, IState>{
     }
 }
 
-export default AddModal;
+export default AddPriceModal;

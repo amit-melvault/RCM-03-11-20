@@ -104,18 +104,18 @@ class Navbar extends React.Component<IProps, IState>{
               </Link>
       </DropdownItem>
     ];
-    const AthenticationMenu = [
-      <DropdownItem key="groups">
-        <Link to="/athentication" style={linkStyle}>
-          Groups
-        </Link>
-      </DropdownItem>,
-      <DropdownItem key="user">
-        <Link to="/user" style={linkStyle}>
-          User
-        </Link>
-      </DropdownItem>
-    ];
+    // const AthenticationMenu = [
+    //   <DropdownItem key="groups">
+    //     <Link to="/athentication" style={linkStyle}>
+    //       Groups
+    //     </Link>
+    //   </DropdownItem>,
+    //   <DropdownItem key="user">
+    //     <Link to="/user" style={linkStyle}>
+    //       User
+    //     </Link>
+    //   </DropdownItem>
+    // ];
 
     return (
 
@@ -179,7 +179,7 @@ class Navbar extends React.Component<IProps, IState>{
                         {/* <Avatar src={Mask} alt="avatar"></Avatar> */}
               </Link>
             </NavItem>
-            <NavItem preventDefault itemId={5} isActive={activeItem.itemId === 5} >
+            {/* <NavItem preventDefault itemId={5} isActive={activeItem.itemId === 5} >
               <Dropdown
                 onSelect={this.onSelect1}
                 toggle={
@@ -192,7 +192,7 @@ class Navbar extends React.Component<IProps, IState>{
                 position={DropdownPosition.right}
                 menuAppendTo={() => document.body}
               />
-            </NavItem>
+            </NavItem> */}
             <Span>
               <select onChange={this.handleSelect}>
                 {
