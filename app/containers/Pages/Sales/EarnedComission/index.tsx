@@ -84,13 +84,9 @@ class EarnedComission extends Component<IProps, IState> {
                 <Header
                     heading="Earned Commissions"
                     subTitle="Make Changes to Earned Commissions/ Sales Transection here"
-                    btnName="Add Comission"
                     data={this.props.earnComi}
                     searchInputValue={this.state.searchInputValue}
                     handleSearchChange={this.handleSearchChange}
-                    isOpenAddModal={this.state.isOpenAddModal}
-                    handleAddItemModal={this.handleAddItemModal}
-                    handleModalClose={this.handleModalClose}
                 />
                 <PaginationTop
                     itemCount={this.props.earnComi.length}

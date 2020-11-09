@@ -1,4 +1,5 @@
 import React from 'react';
+import '../TableStyle.css';
 
 import EditResellerGroupModal from '../../../components/Modals/Resellers/ResellerGroupModal/editResellerGroupModal';
 import AddResellerGroupModal from '../../../components/Modals/Resellers/ResellerGroupModal/addResellerGroupModal';

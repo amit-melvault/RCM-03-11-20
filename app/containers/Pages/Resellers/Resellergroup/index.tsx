@@ -86,13 +86,9 @@ class ResellerGroup extends Component<IProps, IState> {
                 <Header
                     heading="Reseller Groups"
                     subTitle="Make changes Reseller/ Reseller Group here"
-                    btnName="Add Reseller Group"
                     data={this.props.resellerGroupData}
                     searchInputValue={this.state.searchInputValue}
                     handleSearchChange={this.handleSearchChange}
-                    isOpenAddModal={this.state.isOpenAddModal}
-                    handleAddItemModal={this.handleAddItemModal}
-                    handleModalClose={this.handleModalClose}
                 />
                 <PaginationTop
                     itemCount={this.props.resellerGroupData.length}

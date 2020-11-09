@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../TableStyle.css';
 import EditProductModal from '../../../components/Modals/ProductConfigration/ProductModal/editProductModal';
 import AddProductModal from '../../../components/Modals/ProductConfigration/ProductModal/addProductModal'
 

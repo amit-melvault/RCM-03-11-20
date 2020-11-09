@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../TableStyle.css';
 import EditEarnedCommisionModal from '../../../components/Modals/Sales/EarnedCommModal/editEarnedComModal';
 import AddEarnedCommisionModal from '../../../components/Modals/Sales/EarnedCommModal/addearnedComModal';
 

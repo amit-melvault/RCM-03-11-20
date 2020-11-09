@@ -9,11 +9,12 @@ import {
 
 const initialState = {
     Item: [
-        { id: 1, name: 'Some Product Name', refNo: "RS001", Reseller: "Fixed percentage" },
-        { id: 2, name: 'Some name of a Product', refNo: "RS002", Reseller: "variable percentage" },
-        { id: 3, name: 'Some Product Name goes here', refNo: "RS003", Reseller: "Fixed percentage" },
+        { id: 1, name: 'Product Name', code: "RS001", selectRatingType: "Fixed percentage", CommissionValue: 200, selectProduct: 'any product', resellerGroup: 'reseller Group name', reseller: 'reseller Name', selectbase: 'Gross Amount', amountFrom: 1000, amountTo: 2000, selectCommissionValueType: 'percentage', CommisionSectionValue: 300 },
+        { id: 2, name: 'name of a Product', code: "RS002", selectRatingType: "variable percentage", CommissionValue: 200, selectProduct: 'any product', resellerGroup: 'reseller Group name', reseller: 'reseller Name', selectbase: 'Gross Amount', amountFrom: 1000, amountTo: 2000, selectCommissionValueType: 'percentage', CommisionSectionValue: 300 },
+        { id: 3, name: 'Product goes here', code: "RS003", selectRatingType: "Fixed percentage", CommissionValue: 200, selectProduct: 'any product', resellerGroup: 'reseller Group name', reseller: 'reseller Name', selectbase: 'Gross Amount', amountFrom: 1000, amountTo: 2000, selectCommissionValueType: 'percentage', CommisionSectionValue: 300 },
     ]
 }
+
 const originalData = initialState.Item;
 
 const ComissionReducer = (state = initialState, action) => {
@@ -82,13 +83,23 @@ const _handleFilterComission = (state, value) => {
     });
     return filterComision;
 }
+
 const _handleUpdateComission = (state, data) => {
     let ComisionItems = [...state.Item];
     ComisionItems.forEach((Comi) => {
         if (Comi.id === data.id) {
+            Comi.code = data.code;
             Comi.name = data.name;
-            Comi.refNo = data.refNo;
-            Comi.Reseller = data.reseller;
+            Comi.selectRatingType = data.selectRatingType;
+            Comi.CommissionValue = data.CommissionValue;
+            Comi.selectProduct = data.selectProduct;
+            Comi.resellerGroup = data.resellerGroup;
+            Comi.reseller = data.reseller;
+            Comi.selectbase = data.selectbase;
+            Comi.amountFrom = data.amountFrom;
+            Comi.amountTo = data.amountTo;
+            Comi.selectCommissionValueType = data.selectCommissionValueType;
+            Comi.CommisionSectionValue = data.CommisionSectionValue;
         }
     });
     return ComisionItems;

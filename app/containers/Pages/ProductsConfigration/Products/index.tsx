@@ -90,13 +90,9 @@ class Products extends React.Component<IProps, IState> {
         <Header
           heading="Products"
           subTitle="Make changes to Product here"
-          btnName="Add Product"
           data={this.props.product}
           searchInputValue={this.state.searchInputValue}
           handleSearchChange={this.handleSearchChange}
-          isOpenAddModal={this.state.isOpenAddModal}
-          handleAddItemModal={this.handleAddItemModal}
-          handleModalClose={this.handleModalClose}
         />
         <PaginationTop
           itemCount={this.props.product.length}

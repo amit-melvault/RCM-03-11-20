@@ -27,7 +27,6 @@ class PaginationTop extends React.Component<IProps, IState>{
           onSetPage={this.props.onSetPage}
           widgetId="pagination-options-menu-top"
           onPerPageSelect={this.props.onPerPageSelect}
-
         />
       </Div>
     );

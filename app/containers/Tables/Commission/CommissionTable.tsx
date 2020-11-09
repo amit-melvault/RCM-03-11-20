@@ -1,77 +1,73 @@
 import React from 'react';
 import '../TableStyle.css';
-import EditSalesTxnModal from '../../../components/Modals/Sales/SalesTransModal/editSalesTxnModal';
-import AddSalesTxnModal from '../../../components/Modals/Sales/SalesTransModal/addSalesTxnModal';
-
+import AddCommissionModal from '../../../components/Modals/Commission/addCommissionModal';
+import EditCommissionModal from '../../../components/Modals/Commission/editCommissionModal'
 
 interface IState {
-    isAddModalOpen: boolean,
-    isEditModalOpen : boolean,
+    isModalOpen: boolean,
     isMouseInside: boolean,
-    editSalesTxnData: any,
+    editCommissionData: any,
 }
 interface IProps {
     data: any,
     head: any,
-    handleDelete: any
-    updateSalesTransItem: any
+    btnName: any
+    titleName: any
     handleAddItemModal: any
     isOpenAddModal: any
     handleModalClose: any
-    addSalesTransItem: any
-    btnName: any
-    titleName: any
+    handleDelete: any
+    addCommission: any
+    updateCommission: any
 }
 
-class SalesTransTable extends React.Component<IProps, IState> {
+class CommissionTable extends React.Component<IProps, IState> {
     constructor(props) {
         super(props);
         this.state = {
-            isAddModalOpen: false,
-            isEditModalOpen: false,
+            isModalOpen: false,
             isMouseInside: false,
-            editSalesTxnData: [],
+            editCommissionData: [],
         };
     }
 
     handleEdit = (data) => {
         this.setState({
-            isEditModalOpen: true,
-            editSalesTxnData: data,
+            isModalOpen: true,
+            editCommissionData: data,
         });
     };
 
-    handleAddSalesTxnModal = () =>{
+    handleModalClose = isshowModal => {
         this.setState({
-            isAddModalOpen: true
-        })
+            isModalOpen: isshowModal,
+        });
+    };
+
+    mouseEnter = () => {
+        this.setState({ isMouseInside: true });
     }
 
-    handleModalClose = () => {
-        this.setState({
-            isAddModalOpen: false,
-            isEditModalOpen: false,
-        });
-    };
-
+    mouseLeave = () => {
+        this.setState({ isMouseInside: false });
+    }
     render() {
         return (
             <React.Fragment>
-                <EditSalesTxnModal
-                    showModal={this.state.isEditModalOpen}
+                <EditCommissionModal
+                    showEditModal={this.state.isModalOpen}
                     handleModalClose={this.handleModalClose}
-                    editSalesTxnData={this.state.editSalesTxnData}
-                    updateSalesTxn={this.props.updateSalesTransItem}
-                    titleName="Edit Sales Transection"
+                    editCommissionData={this.state.editCommissionData}
+                    updateCommission={this.props.updateCommission}
+                    titleName="Edit Commission Modal"
                 />
-                 <AddSalesTxnModal 
-                    showAddModal={this.state.isAddModalOpen}
-                    handleModalClose={this.handleModalClose}
+                <AddCommissionModal
+                    showAddModal={this.props.isOpenAddModal}
+                    handleModalClose={this.props.handleModalClose}
+                    addCommissionItem={this.props.addCommission}
                     titleName={this.props.titleName}
-                    addSalesTxn = {this.props.addSalesTransItem}
                 />
-                <button onClick={this.handleAddSalesTxnModal} 
-                style={{ borderRadius: "20px", marginRight: "20px", marginBottom: "10px", marginTop: "-24px", background: "#ffae42", border: "none", float: "right", color: "black"}} >
+                <button onClick={this.props.handleAddItemModal} style={{ borderRadius: "20px", marginRight: "20px", marginBottom: "10px", marginTop: "-24px", background: "#ffae42", border: "none", float: "right", color: "black", }} >
                     {this.props.btnName}
                 </button>
                 <div className="table_style">
@@ -94,15 +90,14 @@ class SalesTransTable extends React.Component<IProps, IState> {
                                                         );
                                                     }}
                                                 /> All
-                                            </th>
-                                            <th>{header.refNo}</th>
-                                            <th>{header.productName}</th>
-                                            <th>{header.reseller}</th>
-                                            <th>{header.salesAmount}</th>
+                      </th>
+                                            <th>{header.code}</th>
+                                            <th>{header.name}</th>
+                                            <th>{header.selectRatingType}</th>
                                             <th>{header.action}</th>
                                         </tr>
                                     )
-                                }) 
+                                })
                             }
                         </thead>
                         <tbody>
@@ -126,11 +121,10 @@ class SalesTransTable extends React.Component<IProps, IState> {
                                                 }}
                                             />
                                         </td>
-                                        <td>{item.refNo}</td>
-                                        <td>{item.productName}</td>
-                                        <td>{item.reseller}</td>
-                                        <td>{item.salesAmount}</td>
-                                        <td >
+                                        <td>{item.code}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.selectRatingType}</td>
+                                        <td onMouseOver={this.mouseEnter} onMouseOut={this.mouseLeave}>
                                             <button onClick={() => this.handleEdit(item)} style={ButtonStyel} >
                                                 <span className="fas fa-pencil-alt"></span>
                                             </button>
@@ -154,4 +148,4 @@ const ButtonStyel = {
     marginTop: "auto"
 }
 
-export default SalesTransTable;
+export default CommissionTable;

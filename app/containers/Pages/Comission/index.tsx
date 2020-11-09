@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Header from '../../../components/Header';
 import PaginationTop from '../../../components/Pagination';
-import DataTable from '../../../components/TableList';
+// import DataTable from '../../../components/TableList';
+import CommissionTable from '../../Tables/Commission/CommissionTable';
 import { connect } from 'react-redux';
-import { AddComission,deleteComission, searchComission, updateComission } from './Action';
+import { AddComission, deleteComission, searchComission, updateComission } from './Action';
 
 
 const comissionHead = [
-  { id: 1, name: 'Product Name', refNo: "Code", Reseller: "Rating Type", action:"Action"  },
+  { id: 1, name: 'Product Name', code: "Code", selectRatingType: "Rating Type", action: "Action" },
 ]
 
 interface IState {
@@ -34,7 +35,7 @@ class Comission extends Component<IProps, IState> {
       currentPage: 1,
       productPerPage: 5,
       searchInputValue: '',
-      isOpenAddModal:false,
+      isOpenAddModal: false,
     }
   }
 
@@ -69,7 +70,7 @@ class Comission extends Component<IProps, IState> {
   }
   handleModalClose = () => {
     this.setState({
-        isOpenAddModal: false,
+      isOpenAddModal: false,
     });
   };
 
@@ -80,15 +81,11 @@ class Comission extends Component<IProps, IState> {
     return (
       <React.Fragment>
         <Header
-          heading="Comissions"
-          subTitle="Make changes to Comissions here"
-          btnName="Add Comissions"
+          heading="Commissions"
+          subTitle="Make changes to Commissions here"
           data={this.props.ComisionData}
           searchInputValue={this.state.searchInputValue}
           handleSearchChange={this.handleSearchChange}
-          isOpenAddModal={this.state.isOpenAddModal}
-          handleAddItemModal={this.handleAddItemModal}
-          handleModalClose={this.handleModalClose}
         />
         <PaginationTop
           itemCount={this.props.ComisionData.length}
@@ -97,11 +94,23 @@ class Comission extends Component<IProps, IState> {
           page={this.state.currentPage}
           perPage={this.state.productPerPage}
         />
-        <DataTable
+        {/* <DataTable
           data={currentPages}
           head={this.state.ComissionHead}
           handleDelete={this.deleteComissionData}
           updateItem={this.props.updateComission}
+        /> */}
+        <CommissionTable
+          data={currentPages}
+          head={this.state.ComissionHead}
+          handleDelete={this.deleteComissionData}
+          updateCommission={this.props.updateComission}
+          addCommission={this.props.AddComission}
+          handleAddItemModal={this.handleAddItemModal}
+          handleModalClose={this.handleModalClose}
+          isOpenAddModal={this.state.isOpenAddModal}
+          btnName="Add Commission"
+          titleName="Add Commission"
         />
       </React.Fragment>
     )

@@ -70,7 +70,7 @@ class EditResellerGroupModal extends Component<IProps, IState> {
                     onClose={this.handleModalToggle}
                     actions={[
                         <Button key="add" variant="primary" onClick={this.onSubmitUpdate} style={{ marginLeft: "auto", background: "#ffae42" }}>
-                            Add
+                            Update
                          </Button>,
                         <Button key="cancel" variant="link" onClick={this.handleModalToggle} >
                             Cancel

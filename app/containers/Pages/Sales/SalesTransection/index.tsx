@@ -84,13 +84,9 @@ class Sales extends Component<IProps, IState> {
                 <Header
                     heading="Sales Transactions"
                     subTitle="Make Changes to Sales Transactions here"
-                    btnName="Add Sales"
                     data={this.props.SalesTrans}
                     searchInputValue={this.state.searchInputValue}
                     handleSearchChange={this.handleSearchChange}
-                    isOpenAddModal={this.state.isOpenAddModal}
-                    handleAddItemModal={this.handleAddItemModal}
-                    handleModalClose={this.handleModalClose}
                 />
                 <PaginationTop
                     itemCount={this.props.SalesTrans.length}

@@ -83,13 +83,9 @@ class PriceItemType extends Component<IProps, IState>{
                 <Header
                     heading="Price Item Types"
                     subTitle="Make changes to Price Item Types here"
-                    btnName="Add Price Item"
                     data={this.props.price}
                     searchInputValue={this.state.searchInputValue}
                     handleSearchChange={this.handleSearchChange}
-                    isOpenAddModal={this.state.isOpenAddModal}
-                    handleAddItemModal={this.handleAddItemModal}
-                    handleModalClose={this.handleModalClose}
                 />
                 <PaginationTop
                     itemCount={this.props.price.length}

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../TableStyle.css';
 
 import EditPriceModal from '../../../components/Modals/ProductConfigration/PriceItemModal/editPriceModal';
 import AddPriceModal from '../../../components/Modals/ProductConfigration/PriceItemModal/addPriceModal'
