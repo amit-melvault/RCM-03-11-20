@@ -100,7 +100,7 @@ class AddProductModal extends Component<IProps, IState>{
                 >
                     <Form onSubmit={this.onSubmitUpdate}>
                         <Grid>
-                            <GridItem span={5}>
+                            <GridItem span={8}>
                                 <div className="form-group">
                                     <label>Code :</label>
                                     <input
@@ -112,9 +112,7 @@ class AddProductModal extends Component<IProps, IState>{
                                         value={this.state.refNo}
                                     />
                                 </div>
-                            </GridItem>
-                            <GridItem span={1}></GridItem>
-                            <GridItem span={6}>
+
                                 <div className="form-group" >
                                     <label>Display Name :</label>
                                     <input
@@ -126,10 +124,7 @@ class AddProductModal extends Component<IProps, IState>{
                                         value={this.state.name}
                                     />
                                 </div>
-                            </GridItem>
-                        </Grid>
-                        <Grid>
-                            <GridItem span={5}>
+
                                 <div className="form-group">
                                     <label>Price Item :</label>
                                     <input
@@ -142,7 +137,6 @@ class AddProductModal extends Component<IProps, IState>{
                                     />
                                 </div>
                             </GridItem>
-                            <GridItem span={1}></GridItem>
                         </Grid>
                     </Form>
                 </Modal>

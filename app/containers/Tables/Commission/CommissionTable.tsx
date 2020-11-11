@@ -72,7 +72,7 @@ class CommissionTable extends React.Component<IProps, IState> {
                     {this.props.btnName}
                 </button>
                 <div className="table_style">
-                    <table className="table table-striped">
+                    <table className="table">
                         <thead >
                             {
                                 this.props.head.map((header, i) => {

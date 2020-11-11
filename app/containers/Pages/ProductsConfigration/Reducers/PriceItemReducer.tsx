@@ -88,7 +88,7 @@ const _handleUpdatePriceItem = (state, data) => {
         if (price.id === data.id) {
             price.name = data.name;
             price.refNo = data.refNo;
-            price.Reseller = data.reseller;
+            price.key = data.key;
         }
     });
     return priceItems;

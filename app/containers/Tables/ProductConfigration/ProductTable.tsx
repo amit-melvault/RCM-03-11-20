@@ -7,7 +7,7 @@ import { Grid, GridItem } from '@patternfly/react-core';
 
 interface IState {
     isModalOpen: boolean,
-    isMouseInside: boolean,
+    isButton: boolean,
     editData: any,
 }
 interface IProps {
@@ -27,7 +27,7 @@ class ProductTable extends React.Component<IProps, IState> {
         super(props);
         this.state = {
             isModalOpen: false,
-            isMouseInside: false,
+            isButton: false,
             editData: [],
         };
     }
@@ -146,7 +146,7 @@ class ProductTable extends React.Component<IProps, IState> {
                                                 <td>{item.Reseller}</td>
                                             </GridItem>
                                             <GridItem span={1}>
-                                                <td >
+                                                <td>
                                                     <button onClick={() => this.handleEdit(item)} style={ButtonStyel} >
                                                         <span className="fas fa-pencil-alt"></span>
                                                     </button>

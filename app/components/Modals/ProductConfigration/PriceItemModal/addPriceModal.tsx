@@ -18,7 +18,7 @@ interface IState {
     id: number,
     name: any,
     refNo: any,
-    Reseller: any
+    key: any
 }
 
 interface IProps {
@@ -36,7 +36,7 @@ class AddPriceModal extends Component<IProps, IState>{
             id: 1,
             name: '',
             refNo: '',
-            Reseller: '',
+            key: '',
         }
     }
     handleModalToggle = () => {
@@ -49,7 +49,7 @@ class AddPriceModal extends Component<IProps, IState>{
             id: this.state.id,
             name: this.state.name,
             refNo: this.state.refNo,
-            Reseller: this.state.Reseller,
+            key: this.state.key,
         }
         this.props.addPriceTypeItems(data)
         this.handleModalToggle();
@@ -57,7 +57,7 @@ class AddPriceModal extends Component<IProps, IState>{
             id: 1,
             name: "",
             refNo: "",
-            Reseller: "",
+            key: "",
         })
     }
 
@@ -99,7 +99,7 @@ class AddPriceModal extends Component<IProps, IState>{
                 >
                     <Form onSubmit={this.onSubmitUpdate}>
                         <Grid>
-                            <GridItem span={5}>
+                            <GridItem span={8}>
                                 <div className="form-group" >
                                     <label>Code :</label>
                                     <input
@@ -111,11 +111,9 @@ class AddPriceModal extends Component<IProps, IState>{
                                         value={this.state.refNo}
                                     />
                                 </div>
-                            </GridItem>
-                            <GridItem span={1}></GridItem>
-                            <GridItem span={6}>
+
                                 <div className="form-group" >
-                                <label>Display Name :</label>
+                                    <label>Display Name :</label>
                                     <input
                                         className="form-control"
                                         type="text"
@@ -125,23 +123,19 @@ class AddPriceModal extends Component<IProps, IState>{
                                         value={this.state.name}
                                     />
                                 </div>
-                            </GridItem>
-                        </Grid>
-                        <Grid>
-                            <GridItem span={5}>
+
                                 <div className="form-group" >
-                                <label>Price Item :</label>
+                                    <label>Key :</label>
                                     <input
                                         className="form-control"
                                         type="text"
-                                        placeholder="Price Item"
+                                        placeholder="Key"
                                         onChange={this.handleEditInput}
-                                        name="Reseller"
-                                        value={this.state.Reseller}
+                                        name="key"
+                                        value={this.state.key}
                                     />
                                 </div>
                             </GridItem>
-                            <GridItem span={1}></GridItem>
                         </Grid>
                     </Form>
                 </Modal>
