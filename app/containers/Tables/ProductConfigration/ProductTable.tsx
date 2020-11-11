@@ -2,6 +2,7 @@ import React from 'react';
 import '../TableStyle.css';
 import EditProductModal from '../../../components/Modals/ProductConfigration/ProductModal/editProductModal';
 import AddProductModal from '../../../components/Modals/ProductConfigration/ProductModal/addProductModal'
+import { Grid, GridItem } from '@patternfly/react-core';
 
 
 interface IState {
@@ -70,30 +71,42 @@ class ProductTable extends React.Component<IProps, IState> {
                     {this.props.btnName}
                 </button>
                 <div className="table_style">
-                    <table className="table table-striped">
+                    <table className="table">
                         <thead >
                             {
                                 this.props.head.map((header, i) => {
                                     return (
                                         <tr key={i}>
-                                            <th>
-                                                <input
-                                                    type="checkbox"
-                                                    onChange={e => {
-                                                        let value = e.target.checked;
-                                                        this.setState(
-                                                            this.props.data.map(d => {
-                                                                d.select = value;
-                                                                return d;
-                                                            })
-                                                        );
-                                                    }}
-                                                /> All
-                                            </th>
-                                            <th>{header.refNo}</th>
-                                            <th>{header.name}</th>
-                                            <th>{header.Reseller}</th>
-                                            <th>{header.action}</th>
+                                            <Grid>
+                                                <GridItem span={1}>
+                                                    <th>
+                                                        <input
+                                                            type="checkbox"
+                                                            onChange={e => {
+                                                                let value = e.target.checked;
+                                                                this.setState(
+                                                                    this.props.data.map(d => {
+                                                                        d.select = value;
+                                                                        return d;
+                                                                    })
+                                                                );
+                                                            }}
+                                                        /> All
+                                                    </th>
+                                                </GridItem>
+                                                <GridItem span={2}>
+                                                    <th>{header.refNo}</th>
+                                                </GridItem>
+                                                <GridItem span={4}>
+                                                    <th>{header.name}</th>
+                                                </GridItem>
+                                                <GridItem span={4}>
+                                                    <th>{header.Reseller}</th>
+                                                </GridItem>
+                                                <GridItem span={1}>
+                                                    <th>{header.action}</th>
+                                                </GridItem>
+                                            </Grid>
                                         </tr>
                                     )
                                 })
@@ -103,34 +116,46 @@ class ProductTable extends React.Component<IProps, IState> {
                             {this.props.data.map((item, i) => {
                                 return (
                                     <tr key={i}>
-                                        <td>
-                                            <input
-                                                type="checkbox"
-                                                checked={item.select}
-                                                onChange={e => {
-                                                    let value = e.target.checked;
-                                                    this.setState(
-                                                        this.props.data.map(sd => {
-                                                            if (sd.id === item.id) {
-                                                                sd.select = value;
-                                                            }
-                                                            return sd;
-                                                        })
-                                                    );
-                                                }}
-                                            />
-                                        </td>
-                                        <td>{item.refNo}</td>
-                                        <td>{item.name}</td>
-                                        <td>{item.Reseller}</td>
-                                        <td >
-                                            <button onClick={() => this.handleEdit(item)} style={ButtonStyel} >
-                                                <span className="fas fa-pencil-alt"></span>
-                                            </button>
-                                            <button onClick={() => this.props.handleDelete(item)} style={ButtonStyel}>
-                                                <span className="fas fa-trash-alt"></span>
-                                            </button>
-                                        </td>
+                                        <Grid>
+                                            <GridItem span={1}>
+                                                <td>
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={item.select}
+                                                        onChange={e => {
+                                                            let value = e.target.checked;
+                                                            this.setState(
+                                                                this.props.data.map(sd => {
+                                                                    if (sd.id === item.id) {
+                                                                        sd.select = value;
+                                                                    }
+                                                                    return sd;
+                                                                })
+                                                            );
+                                                        }}
+                                                    />
+                                                </td>
+                                            </GridItem>
+                                            <GridItem span={2}>
+                                                <td>{item.refNo}</td>
+                                            </GridItem>
+                                            <GridItem span={4}>
+                                                <td>{item.name}</td>
+                                            </GridItem>
+                                            <GridItem span={4}>
+                                                <td>{item.Reseller}</td>
+                                            </GridItem>
+                                            <GridItem span={1}>
+                                                <td >
+                                                    <button onClick={() => this.handleEdit(item)} style={ButtonStyel} >
+                                                        <span className="fas fa-pencil-alt"></span>
+                                                    </button>
+                                                    <button onClick={() => this.props.handleDelete(item)} style={ButtonStyel}>
+                                                        <span className="fas fa-trash-alt"></span>
+                                                    </button>
+                                                </td>
+                                            </GridItem>
+                                        </Grid>
                                     </tr>
                                 );
                             })}

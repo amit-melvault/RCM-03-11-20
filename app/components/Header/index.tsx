@@ -28,11 +28,11 @@ class Header extends React.Component<IProps, IState>{
             <React.Fragment>
                
                 <Grid style={{ marginTop: "15px" }}>
-                    <GridItem span={6} sm={6} md={6}>
+                    <GridItem span={6}>
                         <H2>{this.props.heading}</H2>
                         <H6>{this.props.subTitle}</H6>
                     </GridItem>
-                    <GridItem span={6} sm={6} md={6}>
+                    <GridItem span={6}>
 
                         <SearchInput
                             style={{ marginTop: "10px", marginRight: "15px" }}

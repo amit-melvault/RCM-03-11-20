@@ -11,6 +11,7 @@ const API_BASE_URL = ''
 //        })
 //     }
 // }
+
 // export const addProducts = (data) =>{
 //     var data ={
 //         name: data.name,
@@ -26,6 +27,7 @@ const API_BASE_URL = ''
 //        })
 //     }
 // }
+
 // export const updateProducts = (data) =>{
 //     var data ={
 //         name: data.name,

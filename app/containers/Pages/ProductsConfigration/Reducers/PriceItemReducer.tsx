@@ -9,9 +9,9 @@ import {
 
 const initialState = {
     Item: [
-        { id: 1, name: "Net Price", refNo: 'RS001', Reseller: 'item type' },
-        { id: 2, name: "Gross Amount", refNo: 'RS001', Reseller: 'item type' },
-        { id: 3, name: "Net Amount", refNo: 'RS001', Reseller: 'item type' },
+        { id: 1, name: "Net Price", refNo: 'RS001', key: 'item type' },
+        { id: 2, name: "Gross Amount", refNo: 'RS001', key: 'item type' },
+        { id: 3, name: "Net Amount", refNo: 'RS001', key: 'item type' },
     ]
 }
 

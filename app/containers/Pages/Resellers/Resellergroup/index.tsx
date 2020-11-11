@@ -34,7 +34,7 @@ class ResellerGroup extends Component<IProps, IState> {
         this.state = {
             TableHead: resellerGroupHead,
             currentPage: 1,
-            productPerPage: 5,
+            productPerPage: 10,
             searchInputValue: '',
             isOpenAddModal: false,
         }

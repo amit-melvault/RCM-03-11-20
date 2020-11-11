@@ -28,7 +28,7 @@ interface IProps {
 }
 
 const resellersHead = [
-  { id: 1, name: "Reseller Name", phone: "Contact Phone", email: "Email" },
+  { id: 1, name: "Reseller Name", phone: "Contact Phone", email: "Email", action:"Action" },
 ]
 
 
@@ -38,7 +38,7 @@ class Reseller extends Component<IProps, IState> {
     this.state = {
       tabHeader: resellersHead,
       currentPage: 1,
-      productPerPage: 5,
+      productPerPage: 10,
       searchInputValue: '',
       isOpenAddModal: false,
     }

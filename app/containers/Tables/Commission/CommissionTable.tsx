@@ -2,6 +2,7 @@ import React from 'react';
 import '../TableStyle.css';
 import AddCommissionModal from '../../../components/Modals/Commission/addCommissionModal';
 import EditCommissionModal from '../../../components/Modals/Commission/editCommissionModal'
+import { Grid, GridItem } from '@patternfly/react-core';
 
 interface IState {
     isModalOpen: boolean,
@@ -77,24 +78,36 @@ class CommissionTable extends React.Component<IProps, IState> {
                                 this.props.head.map((header, i) => {
                                     return (
                                         <tr key={i}>
-                                            <th>
-                                                <input
-                                                    type="checkbox"
-                                                    onChange={e => {
-                                                        let value = e.target.checked;
-                                                        this.setState(
-                                                            this.props.data.map(d => {
-                                                                d.select = value;
-                                                                return d;
-                                                            })
-                                                        );
-                                                    }}
-                                                /> All
-                      </th>
-                                            <th>{header.code}</th>
-                                            <th>{header.name}</th>
-                                            <th>{header.selectRatingType}</th>
-                                            <th>{header.action}</th>
+                                            <Grid>
+                                                <GridItem span={1}>
+                                                    <th>
+                                                        <input
+                                                            type="checkbox"
+                                                            onChange={e => {
+                                                                let value = e.target.checked;
+                                                                this.setState(
+                                                                    this.props.data.map(d => {
+                                                                        d.select = value;
+                                                                        return d;
+                                                                    })
+                                                                );
+                                                            }}
+                                                        /> All
+                                                    </th>
+                                                </GridItem>
+                                                <GridItem span={2}>
+                                                    <th>{header.code}</th>
+                                                </GridItem>
+                                                <GridItem span={4}>
+                                                    <th>{header.name}</th>
+                                                </GridItem>
+                                                <GridItem span={4}>
+                                                    <th>{header.selectRatingType}</th>
+                                                </GridItem>
+                                                <GridItem span={1}>
+                                                    <th>{header.action}</th>
+                                                </GridItem>
+                                            </Grid>
                                         </tr>
                                     )
                                 })
@@ -104,34 +117,46 @@ class CommissionTable extends React.Component<IProps, IState> {
                             {this.props.data.map((item, i) => {
                                 return (
                                     <tr key={i}>
-                                        <td>
-                                            <input
-                                                type="checkbox"
-                                                checked={item.select}
-                                                onChange={e => {
-                                                    let value = e.target.checked;
-                                                    this.setState(
-                                                        this.props.data.map(sd => {
-                                                            if (sd.id === item.id) {
-                                                                sd.select = value;
-                                                            }
-                                                            return sd;
-                                                        })
-                                                    );
-                                                }}
-                                            />
-                                        </td>
-                                        <td>{item.code}</td>
-                                        <td>{item.name}</td>
-                                        <td>{item.selectRatingType}</td>
-                                        <td onMouseOver={this.mouseEnter} onMouseOut={this.mouseLeave}>
-                                            <button onClick={() => this.handleEdit(item)} style={ButtonStyel} >
-                                                <span className="fas fa-pencil-alt"></span>
-                                            </button>
-                                            <button onClick={() => this.props.handleDelete(item)} style={ButtonStyel}>
-                                                <span className="fas fa-trash-alt"></span>
-                                            </button>
-                                        </td>
+                                        <Grid>
+                                            <GridItem span={1}>
+                                                <td>
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={item.select}
+                                                        onChange={e => {
+                                                            let value = e.target.checked;
+                                                            this.setState(
+                                                                this.props.data.map(sd => {
+                                                                    if (sd.id === item.id) {
+                                                                        sd.select = value;
+                                                                    }
+                                                                    return sd;
+                                                                })
+                                                            );
+                                                        }}
+                                                    />
+                                                </td>
+                                            </GridItem>
+                                            <GridItem span={2}>
+                                                <td>{item.code}</td>
+                                            </GridItem>
+                                            <GridItem span={4}>
+                                                <td>{item.name}</td>
+                                            </GridItem>
+                                            <GridItem span={4}>
+                                                <td>{item.selectRatingType}</td>
+                                            </GridItem>
+                                            <GridItem span={1}>
+                                                <td onMouseOver={this.mouseEnter} onMouseOut={this.mouseLeave}>
+                                                    <button onClick={() => this.handleEdit(item)} style={ButtonStyel} >
+                                                        <span className="fas fa-pencil-alt"></span>
+                                                    </button>
+                                                    <button onClick={() => this.props.handleDelete(item)} style={ButtonStyel}>
+                                                        <span className="fas fa-trash-alt"></span>
+                                                    </button>
+                                                </td>
+                                            </GridItem>
+                                        </Grid>
                                     </tr>
                                 );
                             })}

@@ -33,7 +33,7 @@ class Comission extends Component<IProps, IState> {
     this.state = {
       ComissionHead: comissionHead,
       currentPage: 1,
-      productPerPage: 5,
+      productPerPage: 10,
       searchInputValue: '',
       isOpenAddModal: false,
     }
@@ -50,6 +50,7 @@ class Comission extends Component<IProps, IState> {
   };
 
   deleteComissionData = (index) => {
+    confirm("You wants to delete")
     this.props.deleteComission(index)
   };
 

@@ -24,7 +24,7 @@ interface IProps {
     updateEarnedCommi: any
 }
 const earnedComissionHead = [
-    { id: 1, commission: "Commission", transectionItem: "Transection Item", commissionAmount: "Commission Amount", currency:"Currency"},
+    { id: 1, commission: "Commission", transectionItem: "Transection Item", commissionAmount: "Commission Amount", currency: "Currency", action: "Action" },
 ]
 
 class EarnedComission extends Component<IProps, IState> {
@@ -33,7 +33,7 @@ class EarnedComission extends Component<IProps, IState> {
         this.state = {
             EarnedComHead: earnedComissionHead,
             currentPage: 1,
-            productPerPage: 5,
+            productPerPage: 10,
             searchInputValue: '',
             isOpenAddModal: false,
         }

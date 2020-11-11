@@ -25,7 +25,7 @@ interface IProps {
     updateSalesTrans: any,
 }
 const salesHead = [
-    { id: 1, productName: "Name", refNo: "Refrence Number", reseller: "Reseller",salesAmount:"Amount" },
+    { id: 1, productName: "Name", refNo: "Refrence Number", reseller: "Reseller", salesAmount: "Amount", action: "Action" },
 ]
 
 class Sales extends Component<IProps, IState> {
@@ -34,7 +34,7 @@ class Sales extends Component<IProps, IState> {
         this.state = {
             tableHead: salesHead,
             currentPage: 1,
-            salesTranPerPage: 5,
+            salesTranPerPage: 10,
             searchInputValue: '',
             isOpenAddModal: false,
         }

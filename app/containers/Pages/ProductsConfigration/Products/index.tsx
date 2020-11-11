@@ -12,7 +12,7 @@ import ProductTable from '../../../Tables/ProductConfigration/ProductTable';
 
 
 const productHead = [
-  { id: 1, name: 'Product', action: "Action" },
+  { id: 1, refNo:'Code', name: 'Product',Reseller:"PriceItemId", action: "Action" },
 ]
 
 interface IState {
@@ -39,7 +39,7 @@ class Products extends React.Component<IProps, IState> {
     this.state = {
       tableHead: productHead,
       currentPage: 1,
-      productPerPage: 5,
+      productPerPage: 10,
       searchInputValue: '',
       isOpenAddModal: false,
     }

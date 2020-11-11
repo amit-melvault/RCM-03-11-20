@@ -23,7 +23,7 @@ interface IProps {
     searchPriceItem: any
 }
 const priceItemHeader = [
-    { id: 1, name: "Price Item Type", action: "Action" },
+    { id: 1, refNo:'Code', name: "Price Item Type", key:"Key" ,action: "Action" },
 ]
 
 class PriceItemType extends Component<IProps, IState>{
@@ -32,7 +32,7 @@ class PriceItemType extends Component<IProps, IState>{
         this.state = {
             Header: priceItemHeader,
             currentPage: 1,
-            productPerPage: 5,
+            productPerPage: 10,
             searchInputValue: '',
             isOpenAddModal: false,
         }
